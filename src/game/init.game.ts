@@ -7,9 +7,14 @@ import {
 import { GameScene } from '../scenes/game.scene';
 import { resetGame } from './reset.game';
 
+// called once after the engine starts up
+// setup the game
+
 export function initGame() {
+  const { size } = GameScene;
+
   setCanvasFixedSize(vec2(1920, 1080)); // 1080p
-  setCameraPos(GameScene.size.scale(0.5)); // center camera
+  setCameraPos(size.scale(0.5)); // center camera
   setCameraScale(48);
 
   // start a new game

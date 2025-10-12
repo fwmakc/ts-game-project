@@ -1,11 +1,4 @@
 import { engineInit } from 'littlejsengine';
-import { initGame, updateGame, renderGame } from './game';
+import { init, update, updatePost, render, renderPost, sources } from './core';
 
-engineInit(
-  initGame,
-  updateGame,
-  () => {},
-  renderGame,
-  () => {},
-  ['tiles.png'],
-);
+engineInit(init, update, updatePost, render, renderPost, sources);

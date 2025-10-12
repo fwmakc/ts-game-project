@@ -1,14 +1,17 @@
 import { vec2, Vector2 } from 'littlejsengine';
-import { Ball, Paddle } from '../entities';
+import { Ball } from '../entities/ball.entity';
+import { Paddle } from '../entities/paddle.entity';
 
 export interface IGameScene {
-  size: Vector2;
-  paddle?: Paddle;
   ball?: Ball;
+  paddle?: Paddle;
+  size: Vector2;
+  started: boolean;
 }
 
 export const GameScene: IGameScene = {
-  size: vec2(38, 20),
-  paddle: undefined,
   ball: undefined,
+  paddle: undefined,
+  size: vec2(38, 20),
+  started: false,
 };

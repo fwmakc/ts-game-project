@@ -1,12 +1,17 @@
 import { vec2 } from 'littlejsengine';
 import { GameScene } from '../scenes/game.scene';
-import { Ball } from '../entities';
-import { StartGame } from './helpers/start_game.helper';
+import { Ball } from '../entities/ball.entity';
+import { startGame } from './start.game';
+
+// called every frame at 60 frames per second
+// handle input and update the game state
 
 export function updateGame() {
+  const { size } = GameScene;
+
   // spawn ball
-  if (StartGame()) {
-    GameScene.ball = new Ball(vec2(GameScene.size.x / 2, GameScene.size.y / 2));
+  if (startGame()) {
+    GameScene.ball = new Ball(vec2(size.x / 2, size.y / 2));
   }
 
   if (GameScene.ball && GameScene.ball.pos.y < -1) {

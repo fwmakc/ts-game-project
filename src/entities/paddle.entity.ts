@@ -3,7 +3,6 @@ import {
   gamepadStick,
   isUsingGamepad,
   keyIsDown,
-  keyWasPressed,
   mousePos,
   vec2,
 } from 'littlejsengine';
