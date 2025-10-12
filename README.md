@@ -212,10 +212,16 @@ yarn test ./src/tests/example.test.ts
 
 Для работы использованы следующие библиотеки.
 
-**фреймворк Little.js**
+**little.js**
 
 Версия 1.14.8 и выше.
 Под лицензией MIT.
 Ссылка: https://github.com/KilledByAPixel/LittleJS
 Лицензия: https://github.com/KilledByAPixel/LittleJS/blob/main/LICENSE
 
+**font-bescii**
+
+Версия 2.0 и выше.
+Под лицензией Creative Commons Legal Code CC0 1.0 Universal.
+Ссылка: https://github.com/damianvila/font-bescii
+Лицензия: https://github.com/damianvila/font-bescii?tab=License-1-ov-file#readme

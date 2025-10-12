@@ -1,7 +1,8 @@
 import {
   cameraPos,
+  Color,
+  drawTextOverlay,
   drawTextScreen,
-  FontImage,
   mainCanvasSize,
   vec2,
 } from 'littlejsengine';
@@ -9,17 +10,17 @@ import { GameScene } from '../scenes/game.scene';
 
 export function drawLogoGame() {
   if (!GameScene.started) {
-    drawTextScreen('LittleJS Engine', mainCanvasSize.scale(0.5), 80);
+    drawTextScreen('LittleJS Engine Тест', mainCanvasSize.scale(0.5), 64);
 
-    const fontImage = new Image();
-    fontImage.src = 'engineFont.png';
-
-    const font = new FontImage(fontImage);
-    font.drawTextOverlay(
-      'System Font Test',
-      cameraPos.add(vec2(0, -1.25)),
-      0.1,
-      true,
+    drawTextOverlay(
+      'LittleJS Engine Тест',
+      cameraPos.add(vec2(0, -1.2)),
+      0.5,
+      new Color(255, 0, 0),
+      0,
+      undefined,
+      'center',
+      'Bescii',
     );
 
     if (GameScene.ball) {
