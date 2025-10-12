@@ -1,26 +1,17 @@
-import {
-  gamepadWasPressed,
-  keyWasPressed,
-  mouseWasPressed,
-  vec2,
-} from 'littlejsengine';
-import { gameConst } from '../consts/game.const';
-import { levelSize } from '../consts/level_size.const';
-import { Ball } from '../objects';
-import { resetGame } from './reset.game';
+import { vec2 } from 'littlejsengine';
+import { GameScene } from '../scenes/game.scene';
+import { Ball } from '../entities';
+import { StartGame } from './helpers/start_game.helper';
 
 export function updateGame() {
   // spawn ball
-  if (!gameConst.ball && (mouseWasPressed(0) || gamepadWasPressed(0)))
-    gameConst.ball = new Ball(vec2(levelSize.x / 2, levelSize.y / 2));
-
-  if (gameConst.ball && gameConst.ball.pos.y < -1) {
-    // destroy ball if it goes below the level
-    gameConst.ball.destroy();
-    gameConst.ball = null;
+  if (StartGame()) {
+    GameScene.ball = new Ball(vec2(GameScene.size.x / 2, GameScene.size.y / 2));
   }
 
-  if (keyWasPressed('KeyR')) {
-    resetGame();
+  if (GameScene.ball && GameScene.ball.pos.y < -1) {
+    // destroy ball if it goes below the level
+    GameScene.ball.destroy();
+    GameScene.ball = undefined;
   }
 }

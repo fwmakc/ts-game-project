@@ -4,12 +4,12 @@ import {
   setCanvasFixedSize,
   vec2,
 } from 'littlejsengine';
-import { levelSize } from '../consts/level_size.const';
+import { GameScene } from '../scenes/game.scene';
 import { resetGame } from './reset.game';
 
 export function initGame() {
   setCanvasFixedSize(vec2(1920, 1080)); // 1080p
-  setCameraPos(levelSize.scale(0.5)); // center camera
+  setCameraPos(GameScene.size.scale(0.5)); // center camera
   setCameraScale(48);
 
   // start a new game

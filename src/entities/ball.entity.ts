@@ -1,8 +1,8 @@
 import { hsl, max, min, ParticleEmitter, tile, vec2 } from 'littlejsengine';
-import { gameConst } from '../consts/game.const';
+import { GameScene } from '../scenes/game.scene';
 import { bounceSound } from '../sounds/bounce.sound';
 import { startSound } from '../sounds/start.sound';
-import { PhysicsObject } from './physics.object';
+import { PhysicsObject } from './physics.entity';
 
 export class Ball extends PhysicsObject {
   trailEffect;
@@ -49,7 +49,7 @@ export class Ball extends PhysicsObject {
 
   collideWithObject(object: PhysicsObject) {
     // only need special handling when colliding with paddle
-    if (object != gameConst.paddle) return true;
+    if (object != GameScene.paddle) return true;
 
     // prevent colliding with paddle if moving upwards
     if (this.velocity.y > 0) return false;

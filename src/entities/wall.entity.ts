@@ -1,5 +1,5 @@
 import { hsl } from 'littlejsengine';
-import { PhysicsObject } from './physics.object';
+import { PhysicsObject } from './physics.entity';
 
 export class Wall extends PhysicsObject {
   constructor(pos: any, size: any) {
