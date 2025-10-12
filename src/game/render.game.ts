@@ -1,9 +1,6 @@
 import { cameraPos, drawRect, hsl } from 'littlejsengine';
 import { GameScene } from '../scenes/game.scene';
 
-// called before objects are rendered
-// draw any background effects that appear behind objects
-
 export function renderGame() {
   const { size } = GameScene;
 

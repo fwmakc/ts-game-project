@@ -3,9 +3,6 @@ import { GameScene } from '../scenes/game.scene';
 import { Ball } from '../entities/ball.entity';
 import { startGame } from './start.game';
 
-// called every frame at 60 frames per second
-// handle input and update the game state
-
 export function updateGame() {
   const { size } = GameScene;
 

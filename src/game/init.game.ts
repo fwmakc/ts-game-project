@@ -7,9 +7,6 @@ import {
 import { GameScene } from '../scenes/game.scene';
 import { resetGame } from './reset.game';
 
-// called once after the engine starts up
-// setup the game
-
 export function initGame() {
   const { size } = GameScene;
 
