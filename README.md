@@ -1,5 +1,6 @@
 Шаблон для проектов:
 
+- little.js,
 - typescript,
 - vite,
 - vitest,
@@ -19,7 +20,7 @@ cd my_project
 Клонируем репозиторий
 
 ```
-git clone https://github.com/fwmakc/ts-vite-project.git .
+git clone https://github.com/fwmakc/ts-game-project.git .
 ```
 
 Устанавливаем
@@ -217,3 +218,13 @@ yarn test ./src/tests/example.test.ts
 # Лицензия
 
 Лицензия MIT, 2025
+
+Для работы использованы следующие библиотеки.
+
+**фреймворк Little.js**
+
+Версия 1.14.8 и выше.
+Под лицензией MIT.
+Ссылка: https://github.com/KilledByAPixel/LittleJS
+Лицензия: https://github.com/KilledByAPixel/LittleJS/blob/main/LICENSE
+
