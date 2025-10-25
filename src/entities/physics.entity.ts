@@ -1,7 +1,13 @@
-import { EngineObject } from 'littlejsengine';
+import { Color, EngineObject, TileInfo, Vector2 } from 'littlejsengine';
 
 export class PhysicsObject extends EngineObject {
-  constructor(pos?: any, size?: any, tileInfo?: any, angle?: any, color?: any) {
+  constructor(
+    pos?: Vector2,
+    size?: Vector2,
+    tileInfo?: TileInfo,
+    angle?: number,
+    color?: Color,
+  ) {
     super(pos, size, tileInfo, angle, color);
 
     // make object collide
