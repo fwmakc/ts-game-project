@@ -1,9 +1,7 @@
-import {
-  getInstrument,
-  getPreset,
-  IInstrument,
-  InstrumentType,
-} from '../../instruments';
+import { getInstrument } from '../helpers/get_instrument.helper';
+import { getPreset } from '../helpers/get_preset.helper';
+import { IInstrument } from '../interfaces/instrument.interface';
+import { InstrumentType } from '../types/instrument.type';
 
 export class Instruments {
   instruments: Array<InstrumentType> = [];

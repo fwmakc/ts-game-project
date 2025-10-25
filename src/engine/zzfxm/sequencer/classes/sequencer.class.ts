@@ -1,4 +1,4 @@
-import { ChannelType } from '../../channels';
+import { ChannelType } from '../../channels/types/channel.type';
 import { PatternsType } from '../types/patterns.type';
 
 export class Sequencer {

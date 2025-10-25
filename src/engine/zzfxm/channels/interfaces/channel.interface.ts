@@ -1,4 +1,4 @@
-import { TrackType } from '../../tracks';
+import { TrackType } from '../../tracks/types/track.type';
 
 export interface IChannel {
   instrument: number | undefined;
