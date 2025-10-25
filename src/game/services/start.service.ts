@@ -3,10 +3,10 @@ import {
   keyWasPressed,
   mouseWasPressed,
 } from 'littlejsengine';
-import { GameScene } from '../scenes/game.scene';
-import { SettingsState } from '../states/settings.state';
+import { GameScene } from '../../scenes/game.scene';
+import { SettingsState } from '../../states/settings.state';
 
-export function startGame() {
+export function startService() {
   if (GameScene.ball) {
     return false;
   }

@@ -6,9 +6,9 @@ import {
   mainCanvasSize,
   vec2,
 } from 'littlejsengine';
-import { GameScene } from '../scenes/game.scene';
+import { GameScene } from '../../scenes/game.scene';
 
-export function drawLogoGame() {
+export function drawLogoService() {
   if (!GameScene.started) {
     drawTextScreen('LittleJS Engine Тест', mainCanvasSize.scale(0.5), 64);
 

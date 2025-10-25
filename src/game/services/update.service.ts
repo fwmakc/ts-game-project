@@ -1,13 +1,13 @@
 import { vec2 } from 'littlejsengine';
-import { GameScene } from '../scenes/game.scene';
-import { Ball } from '../entities/ball.entity';
-import { startGame } from './start.game';
+import { GameScene } from '../../scenes/game.scene';
+import { Ball } from '../../entities/ball.entity';
+import { startService } from './start.service';
 
-export function updateGame() {
+export function updateService() {
   const { size } = GameScene;
 
   // spawn ball
-  if (startGame()) {
+  if (startService()) {
     GameScene.ball = new Ball(vec2(size.x / 2, size.y / 2));
   }
 

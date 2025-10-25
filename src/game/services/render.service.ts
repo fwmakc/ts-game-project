@@ -1,7 +1,7 @@
 import { cameraPos, drawRect, hsl } from 'littlejsengine';
-import { GameScene } from '../scenes/game.scene';
+import { GameScene } from '../../scenes/game.scene';
 
-export function renderGame() {
+export function renderService() {
   const { size } = GameScene;
 
   // draw a the background

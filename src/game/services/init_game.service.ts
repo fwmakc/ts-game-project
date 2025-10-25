@@ -7,10 +7,10 @@ import {
   // setFontDefault,
   vec2,
 } from 'littlejsengine';
-import { GameScene } from '../scenes/game.scene';
-import { resetGame } from './reset.game';
+import { GameScene } from '../../scenes/game.scene';
+import { resetService } from './reset.service';
 
-export function initGame() {
+export function initGameService() {
   const { size } = GameScene;
 
   setCanvasFixedSize(vec2(1920, 1080)); // 1080p
@@ -19,7 +19,7 @@ export function initGame() {
   // setFontDefault('Bescii');
 
   // start a new game
-  resetGame();
+  resetService();
 
   const randomInt = {
     iterate: 0,

@@ -1,11 +1,11 @@
 import { engineObjectsDestroy, vec2 } from 'littlejsengine';
-import { Brick } from '../entities/brick.entity';
-import { Paddle } from '../entities/paddle.entity';
-import { Wall } from '../entities/wall.entity';
-import { GameScene } from '../scenes/game.scene';
-import { GameState } from '../states/game.state';
+import { Brick } from '../../entities/brick.entity';
+import { Paddle } from '../../entities/paddle.entity';
+import { Wall } from '../../entities/wall.entity';
+import { GameScene } from '../../scenes/game.scene';
+import { GameState } from '../../states/game.state';
 
-export function resetGame() {
+export function resetService() {
   // reset game objects
   engineObjectsDestroy();
   GameState.score = 0;
