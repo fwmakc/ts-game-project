@@ -1,7 +1,7 @@
 import { engineObjectsDestroy, vec2 } from 'littlejsengine';
-import { Brick } from '../../entities/brick.entity';
-import { Paddle } from '../../entities/paddle.entity';
-import { Wall } from '../../entities/wall.entity';
+import { Brick } from '../../actors/brick.actor';
+import { Paddle } from '../../actors/paddle.actor';
+import { Wall } from '../../actors/wall.actor';
 import { GameScene } from '../../scenes/game.scene';
 import { GameState } from '../../states/game.state';
 

@@ -1,6 +1,6 @@
 import { vec2, Vector2 } from 'littlejsengine';
-import { Ball } from '../entities/ball.entity';
-import { Paddle } from '../entities/paddle.entity';
+import { Ball } from '../actors/ball.actor';
+import { Paddle } from '../actors/paddle.actor';
 
 export interface IGameScene {
   ball?: Ball;

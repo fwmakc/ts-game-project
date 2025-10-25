@@ -1,6 +1,6 @@
 import { vec2 } from 'littlejsengine';
 import { GameScene } from '../../scenes/game.scene';
-import { Ball } from '../../entities/ball.entity';
+import { Ball } from '../../actors/ball.actor';
 import { startService } from './start.service';
 
 export function updateService() {

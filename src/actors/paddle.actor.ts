@@ -7,10 +7,10 @@ import {
   vec2,
 } from 'littlejsengine';
 import { GameScene } from '../scenes/game.scene';
-import { PhysicsObject } from './physics.entity';
+import { PhysicsClass } from './classes/physics.class';
 import { SettingsState } from '../states/settings.state';
 
-export class Paddle extends PhysicsObject {
+export class Paddle extends PhysicsClass {
   constructor(pos: any) {
     super(pos, vec2(5, 0.5));
   }

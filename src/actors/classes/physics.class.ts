@@ -1,6 +1,6 @@
 import { Color, EngineObject, TileInfo, Vector2 } from 'littlejsengine';
 
-export class PhysicsObject extends EngineObject {
+export class PhysicsClass extends EngineObject {
   constructor(
     pos?: Vector2,
     size?: Vector2,

@@ -1,9 +1,9 @@
 import { hsl, ParticleEmitter, randColor, tile, vec2 } from 'littlejsengine';
 import { breakSound } from '../sounds/break.sound';
-import { PhysicsObject } from './physics.entity';
-import { Ball } from './ball.entity';
+import { PhysicsClass } from './classes/physics.class';
+import { Ball } from './ball.actor';
 
-export class Brick extends PhysicsObject {
+export class Brick extends PhysicsClass {
   constructor(pos: any) {
     super(pos, vec2(2, 1), tile(1, vec2(32, 16)), 0, randColor());
   }
