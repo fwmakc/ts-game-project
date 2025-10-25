@@ -1,29 +1,34 @@
-import { hsl, ParticleEmitter, randColor, tile, vec2 } from 'littlejsengine';
+import { actors, colors, particles, tiles, vectors } from '../engine';
 import { breakSound } from '../sounds/break.sound';
-import { PhysicsClass } from './classes/physics.class';
 import { Ball } from './ball.actor';
 
-export class Brick extends PhysicsClass {
-  constructor(pos: any) {
-    super(pos, vec2(2, 1), tile(1, vec2(32, 16)), 0, randColor());
+export class Brick extends actors.Actor {
+  constructor(position: vectors.IVector) {
+    super({
+      position,
+      size: vectors.vector(2, 1),
+      tiles: tiles.tile(1, vectors.vector(32, 16)),
+      angle: 0,
+      color: colors.random(),
+    });
   }
 
   collideWithObject(ball: Ball): boolean {
     // destroy brick when hit with ball
     this.destroy();
-    breakSound.play(this.pos);
+    breakSound.play(this.position);
 
     // make explosion effect
     const color1 = this.color;
-    const color2 = color1.lerp(hsl(), 0.5);
-    new ParticleEmitter(
-      this.pos,
+    const color2 = color1.lerp(colors.hsl(), 0.5);
+    new particles.Emitter(
+      this.position,
       0, // pos, angle
       this.size,
       0.1,
       200,
       3.14, // emitSize, emitTime, emitRate, emitCone
-      tile(0, 16), // tileIndex, tileSize
+      tiles.tile(0, 16), // tileIndex, tileSize
       color1,
       color2, // colorStartA, colorStartB
       color1.scale(1, 0),
@@ -46,7 +51,7 @@ export class Brick extends PhysicsClass {
     // set ball trail color
     if (ball.trailEffect) {
       ball.trailEffect.colorStartA = this.color;
-      ball.trailEffect.colorStartB = this.color.lerp(hsl(), 0.5);
+      ball.trailEffect.colorStartB = this.color.lerp(colors.hsl(), 0.5);
     }
 
     return true;

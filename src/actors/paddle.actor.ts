@@ -4,15 +4,14 @@ import {
   isUsingGamepad,
   keyIsDown,
   mousePos,
-  vec2,
 } from 'littlejsengine';
+import { actors, vectors } from '../engine';
 import { GameScene } from '../scenes/game.scene';
-import { PhysicsClass } from './classes/physics.class';
 import { SettingsState } from '../states/settings.state';
 
-export class Paddle extends PhysicsClass {
-  constructor(pos: any) {
-    super(pos, vec2(5, 0.5));
+export class Paddle extends actors.Actor {
+  constructor(position: vectors.IVector) {
+    super({ position, size: vectors.vector(5, 0.5) });
   }
 
   update() {
@@ -20,21 +19,21 @@ export class Paddle extends PhysicsClass {
     switch (SettingsState.controls) {
       case 'gamepad':
         if (isUsingGamepad) {
-          this.pos.x += gamepadStick(0).x;
+          this.position.x += gamepadStick(0).x;
         }
         break;
 
       case 'keyboard':
         if (keyIsDown('ArrowLeft')) {
-          this.pos.x -= 0.5;
+          this.position.x -= 0.5;
         }
         if (keyIsDown('ArrowRight')) {
-          this.pos.x += 0.5;
+          this.position.x += 0.5;
         }
         break;
 
       case 'mouse':
-        this.pos.x = mousePos.x;
+        this.position.x = mousePos.x;
         break;
 
       default:
@@ -42,8 +41,8 @@ export class Paddle extends PhysicsClass {
     }
 
     // keep paddle in bounds of level
-    this.pos.x = clamp(
-      this.pos.x,
+    this.position.x = clamp(
+      this.position.x,
       this.size.x / 2,
       GameScene.size.x - this.size.x / 2,
     );

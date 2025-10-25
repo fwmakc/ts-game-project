@@ -1,11 +1,10 @@
 import {
   cameraPos,
-  Color,
   drawTextOverlay,
   drawTextScreen,
   mainCanvasSize,
-  vec2,
 } from 'littlejsengine';
+import { colors, vectors } from '../../engine';
 import { GameScene } from '../../scenes/game.scene';
 
 export function drawLogoService() {
@@ -14,9 +13,9 @@ export function drawLogoService() {
 
     drawTextOverlay(
       'LittleJS Engine Тест',
-      cameraPos.add(vec2(0, -1.2)),
+      cameraPos.add(vectors.vector(0, -1.2)),
       0.5,
-      new Color(255, 0, 0),
+      new colors.IColor(255, 0, 0),
       0,
       undefined,
       'center',

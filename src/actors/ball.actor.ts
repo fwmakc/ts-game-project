@@ -1,30 +1,29 @@
-import { hsl, max, min, ParticleEmitter, tile, vec2 } from 'littlejsengine';
+import { actors, colors, math, particles, tiles, vectors } from '../engine';
 import { GameScene } from '../scenes/game.scene';
 import { bounceSound } from '../sounds/bounce.sound';
 import { startSound } from '../sounds/start.sound';
-import { PhysicsClass } from './classes/physics.class';
 
-export class Ball extends PhysicsClass {
+export class Ball extends actors.Actor {
   trailEffect;
 
-  constructor(pos: any) {
-    super(pos, vec2(0.5), tile(0));
+  constructor(position: vectors.IVector) {
+    super({ position, size: vectors.vector(0.5), tiles: tiles.tile(0) });
 
     // make a bouncy ball
-    this.velocity = vec2(0, -0.1);
+    this.velocity = vectors.vector(0, -0.1);
     this.restitution = 1;
     this.mass = 1;
 
     // attach a trail effect
-    const color = hsl(0, 0, 0.2);
-    this.trailEffect = new ParticleEmitter(
-      this.pos,
+    const color = colors.hsl(0, 0, 0.2);
+    this.trailEffect = new particles.Emitter(
+      this.position,
       0, // pos, angle
       this.size,
       0,
       80,
       3.14, // emitSize, emitTime, emitRate, emitCone
-      tile(0, 16), // tileIndex, tileSize
+      tiles.tile(0, 16), // tileIndex, tileSize
       color,
       color, // colorStartA, colorStartB
       color.scale(0),
@@ -44,10 +43,11 @@ export class Ball extends PhysicsClass {
       true, // fade, randomness, collide, additive
     );
     this.addChild(this.trailEffect);
-    startSound.play(this.pos);
+
+    startSound.play(this.position, 1, 1);
   }
 
-  collideWithObject(object: PhysicsClass): boolean {
+  collideWithObject(object: actors.Actor): boolean {
     // only need special handling when colliding with paddle
     if (object != GameScene.paddle) return true;
 
@@ -55,13 +55,15 @@ export class Ball extends PhysicsClass {
     if (this.velocity.y > 0) return false;
 
     // put english on the ball when it collides with paddle
-    this.velocity = this.velocity.rotate(0.2 * (object.pos.x - this.pos.x));
-    this.velocity.y = max(-this.velocity.y, 0.2);
+    this.velocity = this.velocity.rotate(
+      0.2 * (object.position.x - this.position.x),
+    );
+    this.velocity.y = math.max(-this.velocity.y, 0.2);
 
     // speed up
-    const speed = min(1.04 * this.velocity.length(), 0.5);
+    const speed = math.min(1.04 * this.velocity.length(), 0.5);
     this.velocity = this.velocity.normalize(speed);
-    bounceSound.play(this.pos, 1, speed * 2);
+    bounceSound.play(this.position, 1, speed * 2);
 
     // prevent default collision code
     return false;

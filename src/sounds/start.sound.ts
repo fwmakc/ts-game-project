@@ -1,6 +1,6 @@
-import { Sound } from 'littlejsengine';
+import { sounds } from '../engine';
 
-export const startSound = new Sound([
+export const startSound = new sounds.Sound([
   undefined,
   0,
   500,
