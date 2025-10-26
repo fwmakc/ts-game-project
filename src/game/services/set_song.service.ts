@@ -1,12 +1,31 @@
-import { Song } from '../../engine/zzfxm';
+import { sounds } from '../../engine';
 
 export function setSongService() {
-  const song = new Song();
+  const song = new sounds.Music();
 
   song.instruments.setPreset('pianoInstrument', 'piano');
 
-  const pianoTrack0 = [['c1'], [], [], [], ['d1', 50], [], []];
-  const pianoTrack1 = [['c1'], [], [], [], ['c2', 25], ['c2', 50], ['c2', 75]];
+  const pianoTrack0 = [
+    'c1',
+    null,
+    null,
+    null,
+    ['d1', 50],
+    null,
+    null,
+    null,
+    null,
+  ];
+  const pianoTrack1 = [
+    'c1',
+    null,
+    null,
+    null,
+    ['c2', 25],
+    ['c2', 50],
+    ['c2', 75],
+    null,
+  ];
 
   song.tracks.set('pianoTrack0', pianoTrack0);
   song.tracks.set('pianoTrack1', pianoTrack1);
@@ -37,8 +56,7 @@ export function setSongService() {
   );
   song.sequencer.addToSequencer('pianoChannel');
 
-  const sound = song.getSong();
+  song.generate();
 
-  console.log('-- sound', sound);
-  // console.log('-- song', song);
+  return song;
 }

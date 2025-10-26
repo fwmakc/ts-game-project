@@ -10,13 +10,11 @@ export class Instruments {
 
   constructor() {}
 
-  // get(name: string): InstrumentType | undefined {
   get(name: string): number | undefined {
     const index = this.instrumentsCollection.findIndex(
       (value) => value === name,
     );
     return index;
-    // return this.instruments?.[index];
   }
 
   set(name: string, i: IInstrument | undefined): void {

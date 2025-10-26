@@ -6,6 +6,8 @@ import {
 } from 'littlejsengine';
 import { colors, vectors } from '../../engine';
 import { GameScene } from '../../scenes/game.scene';
+// import { setSongService } from './set_song.service';
+// import { setSfxService } from './set_sfx.service';
 
 export function drawLogoService() {
   if (!GameScene.started) {
@@ -23,6 +25,10 @@ export function drawLogoService() {
     );
 
     if (GameScene.ball) {
+      // const song = setSongService();
+      // song?.play();
+      // const sfx = setSfxService();
+      // sfx?.play();
       GameScene.started = true;
     }
   }
