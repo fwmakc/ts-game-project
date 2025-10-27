@@ -5,16 +5,20 @@ export class StackScenes {
 
   constructor() {}
 
-  add(scene: Scene) {
+  add(scene: Scene): void {
     this.stack.unshift(scene);
     scene.create();
   }
 
-  remove() {
+  getByName(sceneName: string): Array<Scene> {
+    return this.stack.filter((scene: Scene) => scene.name === sceneName);
+  }
+
+  remove(): void {
     this.stack.shift();
   }
 
-  removeByName(sceneName: string) {
+  removeByName(sceneName: string): void {
     this.stack = this.stack.filter((scene: Scene) => scene.name !== sceneName);
   }
 

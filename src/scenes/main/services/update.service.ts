@@ -6,7 +6,9 @@ import { isStartedService } from './is_started.service';
 
 export function updateService(scene) {
   // spawn ball
-  if (isStartedService(scene)) {
+  const isStarted = isStartedService();
+  console.log('-- isStarted', isStarted);
+  if (isStarted) {
     startService(scene);
   }
 

@@ -5,11 +5,7 @@ import {
 } from 'littlejsengine';
 import { SettingsState } from '../../../states/settings.state';
 
-export function isStartedService(scene) {
-  if (scene.actors.ball) {
-    return false;
-  }
-
+export function isStartedService() {
   const { controls } = SettingsState;
 
   if (controls === 'gamepad' && gamepadWasPressed(0)) {

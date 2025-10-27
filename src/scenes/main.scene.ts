@@ -22,8 +22,8 @@ export class MainScene extends system.Scene {
   }
 
   renderPost() {
-    if (!this.active) {
-      drawLogoService();
-    }
+    // if (!this.active) {
+    //   drawLogoService();
+    // }
   }
 }
