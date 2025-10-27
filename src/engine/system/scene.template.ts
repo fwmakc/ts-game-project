@@ -1,14 +1,15 @@
 import { vectors } from '..';
+import { IScene } from './scene.interface';
 
-export abstract class Scene {
+export abstract class Scene implements IScene {
   active: boolean;
   name: string;
   size: vectors.IVector;
 
-  constructor() {
+  constructor(name, x, y) {
     this.active = true;
-    this.name = '';
-    this.size = vectors.vector();
+    this.name = name;
+    this.size = vectors.vector(x, y);
   }
 
   abstract init(): void;

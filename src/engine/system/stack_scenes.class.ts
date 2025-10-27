@@ -1,11 +1,11 @@
-import { Scene } from './scene';
+import { IScene } from './scene.interface';
 
-export class ScenesStack {
-  stack: Array<Scene> = [];
+export class StackScenes {
+  stack: Array<IScene> = [];
 
   constructor() {}
 
-  add(scene: Scene) {
+  add(scene: IScene) {
     this.stack.unshift(scene);
     scene.init();
   }
@@ -15,32 +15,32 @@ export class ScenesStack {
   }
 
   removeByName(sceneName: string) {
-    this.stack = this.stack.filter((scene: Scene) => scene.name !== sceneName);
+    this.stack = this.stack.filter((scene: IScene) => scene.name !== sceneName);
   }
 
   update() {
-    this.stack.forEach((scene: Scene) => {
+    this.stack.forEach((scene: IScene) => {
       if (!scene.active) return;
       scene.update();
     });
   }
 
   updatePost() {
-    this.stack.forEach((scene: Scene) => {
+    this.stack.forEach((scene: IScene) => {
       if (!scene.active) return;
       scene.updatePost();
     });
   }
 
   render() {
-    this.stack.forEach((scene: Scene) => {
+    this.stack.forEach((scene: IScene) => {
       if (!scene.active) return;
       scene.render();
     });
   }
 
   renderPost() {
-    this.stack.forEach((scene: Scene) => {
+    this.stack.forEach((scene: IScene) => {
       if (!scene.active) return;
       scene.renderPost();
     });

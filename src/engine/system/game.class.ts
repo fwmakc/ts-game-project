@@ -1,12 +1,12 @@
 import { engineInit } from 'littlejsengine';
-import { ScenesStack } from '../scenes/scenes_stack';
+import { StackScenes } from './stack_scenes.class';
 
 export class Game {
   sources: Array<string> = [];
-  scenes: ScenesStack;
+  scenes: StackScenes;
 
-  constructor() {
-    this.scenes = new ScenesStack();
+  constructor(stackScenes: StackScenes) {
+    this.scenes = stackScenes;
   }
 
   start() {
