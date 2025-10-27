@@ -1,19 +1,31 @@
-import { vectors } from '../../engine';
-import { Ball } from '../../actors/ball.actor';
+import { sounds } from '../../engine';
 import { GameScene } from '../../scenes/game.scene';
 import { startService } from './start.service';
+import { setSongService } from './set_song.service';
+import { setSfxService } from './set_sfx.service';
+import { isStartedService } from './is_started.service';
 
 export function updateService() {
-  const { size } = GameScene;
-
+  /*
   // spawn ball
-  if (startService()) {
-    GameScene.ball = new Ball(vectors.vector(size.x / 2, size.y / 2));
+  if (isStartedService()) {
+    startService();
   }
+
+  sounds.onInit(() => {
+    const sfx = setSfxService();
+    sfx.play();
+    // const song = setSongService();
+    // song.play();
+  });
 
   if (GameScene.ball && GameScene.ball.position.y < -1) {
     // destroy ball if it goes below the level
     GameScene.ball.destroy();
     GameScene.ball = undefined;
+
+    // resetService();
+    startService();
   }
+  */
 }

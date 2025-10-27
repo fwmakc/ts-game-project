@@ -1,8 +1,9 @@
 import { Sound } from 'littlejsengine';
-import { Music } from './sound/music.class';
-import { Sfx } from './sound/sfx.class';
+import { Music } from './sound/music';
+import { Sfx } from './sound/sfx';
+import { onInit } from './sound/on_init';
 
-export { Music, Sfx, Sound };
+export { Music, Sfx, Sound, onInit };
 
 /*
 
