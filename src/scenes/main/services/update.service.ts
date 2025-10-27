@@ -1,15 +1,13 @@
-import { sounds } from '../../engine';
-import { GameScene } from '../../scenes/game.scene';
+import { sounds } from '../../../engine';
 import { startService } from './start.service';
 import { setSongService } from './set_song.service';
 import { setSfxService } from './set_sfx.service';
 import { isStartedService } from './is_started.service';
 
-export function updateService() {
-  /*
+export function updateService(scene) {
   // spawn ball
-  if (isStartedService()) {
-    startService();
+  if (isStartedService(scene)) {
+    startService(scene);
   }
 
   sounds.onInit(() => {
@@ -19,13 +17,12 @@ export function updateService() {
     // song.play();
   });
 
-  if (GameScene.ball && GameScene.ball.position.y < -1) {
+  if (scene.actors.ball && scene.actors.ball.position.y < -1) {
     // destroy ball if it goes below the level
-    GameScene.ball.destroy();
-    GameScene.ball = undefined;
+    scene.actors.ball.destroy();
+    scene.actors.ball = undefined;
 
     // resetService();
-    startService();
+    startService(scene);
   }
-  */
 }

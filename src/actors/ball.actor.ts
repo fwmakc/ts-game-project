@@ -1,13 +1,14 @@
 import { actors, colors, math, particles, tiles, vectors } from '../engine';
-import { GameScene } from '../scenes/game.scene';
+import { Scene } from '../engine/system';
 import { bounceSound } from '../sounds/bounce.sound';
 import { startSound } from '../sounds/start.sound';
+import { Paddle } from './paddle.actor';
 
 export class Ball extends actors.Actor {
   trailEffect;
 
-  constructor(position: vectors.IVector) {
-    super({ position, size: vectors.vector(0.5), tiles: tiles.tile(0) });
+  constructor(position: vectors.IVector, scene: Scene) {
+    super({ position, size: vectors.vector(0.5), tiles: tiles.tile(0), scene });
 
     // make a bouncy ball
     this.velocity = vectors.vector(0, -0.1);
@@ -48,8 +49,14 @@ export class Ball extends actors.Actor {
   }
 
   collideWithObject(object: actors.Actor): boolean {
+    console.log('-- collideWithObject', {
+      object,
+      objectType: typeof object,
+      paddle: Paddle,
+      paddleType: typeof Paddle,
+    });
     // only need special handling when colliding with paddle
-    if (object != GameScene.paddle) return true;
+    if (object != this.scene.actors.paddle) return true;
 
     // prevent colliding with paddle if moving upwards
     if (this.velocity.y > 0) return false;

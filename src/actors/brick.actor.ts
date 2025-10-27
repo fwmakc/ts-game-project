@@ -1,15 +1,17 @@
 import { actors, colors, particles, tiles, vectors } from '../engine';
+import { Scene } from '../engine/system';
 import { breakSound } from '../sounds/break.sound';
 import { Ball } from './ball.actor';
 
 export class Brick extends actors.Actor {
-  constructor(position: vectors.IVector) {
+  constructor(position: vectors.IVector, scene: Scene) {
     super({
       position,
       size: vectors.vector(2, 1),
       tiles: tiles.tile(1, vectors.vector(32, 16)),
       angle: 0,
       color: colors.random(),
+      scene,
     });
   }
 

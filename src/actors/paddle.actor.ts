@@ -6,12 +6,12 @@ import {
   mousePos,
 } from 'littlejsengine';
 import { actors, vectors } from '../engine';
-import { GameScene } from '../scenes/game.scene';
 import { SettingsState } from '../states/settings.state';
+import { Scene } from '../engine/system';
 
 export class Paddle extends actors.Actor {
-  constructor(position: vectors.IVector) {
-    super({ position, size: vectors.vector(5, 0.5) });
+  constructor(position: vectors.IVector, scene: Scene) {
+    super({ position, size: vectors.vector(5, 0.5), scene });
   }
 
   update() {
@@ -44,7 +44,7 @@ export class Paddle extends actors.Actor {
     this.position.x = clamp(
       this.position.x,
       this.size.x / 2,
-      GameScene.size.x - this.size.x / 2,
+      this.scene.size.x - this.size.x / 2,
     );
   }
 }

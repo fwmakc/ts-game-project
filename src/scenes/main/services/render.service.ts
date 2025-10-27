@@ -1,9 +1,8 @@
 import { cameraPos, drawRect } from 'littlejsengine';
-import { colors } from '../../engine';
-import { GameScene } from '../../scenes/game.scene';
+import { colors } from '../../../engine';
 
-export function renderService() {
-  const { size } = GameScene;
+export function renderService(scene) {
+  const { size } = scene;
 
   // draw a the background
   drawRect(cameraPos, size.scale(2), colors.hsl(0, 0, 0.5));

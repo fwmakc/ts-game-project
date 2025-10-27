@@ -1,4 +1,4 @@
-import { sounds } from '../../engine';
+import { sounds } from '../../../engine';
 
 export function setSfxService() {
   const sfx = new sounds.Sfx();

@@ -1,4 +1,4 @@
-import { sounds } from '../../engine';
+import { sounds } from '../../../engine';
 
 export function setSongService() {
   const song = new sounds.Music();
